@@ -2,7 +2,7 @@
     --height: 100vh;
     --width: 100vw;
     --primary-color: #00feba;
-    --secondary-color: #fb548a;
+    --secondary-color: #ff74cc;
     --background-color: #222;
     --text-color: #fff;
     --input-background: #edfffc;
@@ -125,4 +125,56 @@ body {
 }
 .weather{
     display: none;
+}
+
+.search input:focus {
+    box-shadow: 0 0 5px var(--secondary-color);
+}
+
+.search button:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.weather {
+    transition: all 0.3s ease-in-out;
+}
+
+.weather-icon {
+    transition: transform 0.3s ease-in-out;
+}
+
+.weather h1, .weather h2, .details p {
+    transition: opacity 0.3s ease-in-out;
+}
+@media (max-width: 600px) {
+    .container {
+        padding: 3vh 3vw;
+    }
+
+    .search input, .search button {
+        height: 50px;
+    }
+
+    .weather h1 {
+        font-size: 50px;
+    }
+
+    .weather h2 {
+        font-size: 30px;
+    }
+
+    .details {
+        padding: 0 10px;
+    }
+
+    .col1 img, .col2 img {
+        width: 30px;
+    }
+
+    .humidity, .wind {
+        font-size: 20px;
+    }
 }
