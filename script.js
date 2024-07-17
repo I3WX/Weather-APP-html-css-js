@@ -9,15 +9,19 @@ const displayWind = document.getElementById("wind")
 const weatherIcon = document.getElementById("weatherIcon")
 
 async function checkWeather(city){
-    try{
+    try {
         const response = await fetch(apiUrl + `&q=${city}` + `&appid=${apiKey}`);
+        if (!response.ok) {
+            throw new Error('City not found');
+        }
         let data = await response.json();
-        return data
-    }
-    catch(err){
-        console.log(err)
+        return data;
+    } catch(err) {
+        console.error(err);
+        alert('City not found. Please try again.');
     }
 }
+
 searchBtn.addEventListener("click", async ()=>{
     let city = searchBar.value;
     let weatherData = await checkWeather(city);
