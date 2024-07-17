@@ -9,10 +9,14 @@ const displayWind = document.getElementById("wind")
 const weatherIcon = document.getElementById("weatherIcon")
 
 async function checkWeather(city){
-    const response = await fetch(apiUrl + `&q=${city}` + `&appid=${apiKey}`);
-    let data = await response.json();
-    
-    return data
+    try{
+        const response = await fetch(apiUrl + `&q=${city}` + `&appid=${apiKey}`);
+        let data = await response.json();
+        return data
+    }
+    catch(err){
+        console.log(err)
+    }
 }
 searchBtn.addEventListener("click", async ()=>{
     let city = searchBar.value;
